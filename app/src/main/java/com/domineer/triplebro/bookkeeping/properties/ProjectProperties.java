@@ -8,5 +8,7 @@ package com.domineer.triplebro.bookkeeping.properties;
  */
 public class ProjectProperties {
 
+    public static final int FROM_GALLERY = 1;
 
+    public static final int FROM_CAMERA = 2;
 }

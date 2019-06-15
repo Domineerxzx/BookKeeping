@@ -5,237 +5,271 @@
     android:background="@color/AppBackground">
 
     <RelativeLayout
-        android:id="@+id/rl_user"
+        android:id="@+id/rl_myself"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:background="@color/App_Color"
-        android:orientation="horizontal"
-        android:padding="20dp"
-        android:gravity="center">
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
-        <ImageView
-            android:id="@+id/iv_user_head"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:scaleType="centerCrop"
-            android:background="@mipmap/user_head"
-            android:layout_centerHorizontal="true"/>
+        <RelativeLayout
+            android:id="@+id/rl_user"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/App_Color"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/iv_user_head"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerHorizontal="true"
+                android:background="@mipmap/user_head"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:id="@+id/ll_user_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/iv_user_head"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/nicknameDefault"
+                    android:textColor="@color/White"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/usernameDefault"
+                    android:textColor="@color/White"
+                    android:textSize="12dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
-            android:id="@+id/ll_user_info"
-            android:layout_width="wrap_content"
+            android:id="@+id/ll_function"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/rl_user"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_white_card"
             android:orientation="vertical"
-            android:layout_below="@id/iv_user_head"
-            android:layout_centerHorizontal="true"
-            android:gravity="center">
+            android:padding="10dp">
 
-            <TextView
-                android:id="@+id/tv_nickname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/nicknameDefault"
-                android:textColor="@color/White"
-                android:textSize="18dp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tv_username"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="@string/usernameDefault"
-                android:textColor="@color/White"
-                android:textSize="12dp" />
+            <RelativeLayout
+                android:id="@+id/rl_collection"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_collection"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/collection" />
+
+                <TextView
+                    android:id="@+id/tv_collection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_collection"
+                    android:text="收藏的账单"
+                    android:textColor="@color/Black"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/iv_collection_more"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/next" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/Line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_about_us"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_about_us"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/contact" />
+
+                <TextView
+                    android:id="@+id/tv_about_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_about_us"
+                    android:text="关于我们"
+                    android:textColor="@color/Black"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/iv_about_us_more"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/next" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/Line" />
+
+            <RelativeLayout
+                android:id="@+id/rl_contact_us"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_contact_us"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/about" />
+
+                <TextView
+                    android:id="@+id/tv_contact_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_contact_us"
+                    android:text="联系我们"
+                    android:textColor="@color/Black"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/iv_contact_us_more"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/next" />
+            </RelativeLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_function"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_white_card"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+
+            <RelativeLayout
+                android:id="@+id/rl_setting"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_setting"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/setting" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/iv_setting"
+                    android:text="设置"
+                    android:textColor="@color/Black"
+                    android:textSize="12dp" />
+
+                <ImageView
+                    android:id="@+id/iv_setting_more"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/next" />
+            </RelativeLayout>
+
+        </LinearLayout>
+
     </RelativeLayout>
 
-    <LinearLayout
-        android:id="@+id/ll_function"
+    <RelativeLayout
+        android:id="@+id/rl_user_head_large"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/rl_user"
-        android:background="@drawable/shape_white_card"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/Baffle">
 
-
-        <RelativeLayout
-            android:id="@+id/rl_collection"
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal">
+            android:layout_height="400dp"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/user_head"
+            android:id="@+id/iv_user_head_large"/>
 
-            <ImageView
-                android:id="@+id/iv_collection"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/collection" />
+        <ImageView
+            android:id="@+id/iv_close_user_head_large"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="30dp"
+            android:background="@mipmap/close"/>
 
-            <TextView
-                android:id="@+id/tv_collection"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/iv_collection"
-                android:text="收藏的账单"
-                android:textColor="@color/Black"
-                android:textSize="12dp" />
+    </RelativeLayout>
 
-            <ImageView
-                android:id="@+id/iv_collection_more"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/next" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/Line" />
-
-        <RelativeLayout
-            android:id="@+id/rl_about_us"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_about_us"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/contact" />
-
-            <TextView
-                android:id="@+id/tv_about_us"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/iv_about_us"
-                android:text="关于我们"
-                android:textColor="@color/Black"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:id="@+id/iv_about_us_more"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/next" />
-        </RelativeLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/Line" />
-
-        <RelativeLayout
-            android:id="@+id/rl_contact_us"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_contact_us"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/about" />
-
-            <TextView
-                android:id="@+id/tv_contact_us"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/iv_contact_us"
-                android:text="联系我们"
-                android:textColor="@color/Black"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:id="@+id/iv_contact_us_more"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/next" />
-        </RelativeLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/ll_function"
-        android:background="@drawable/shape_white_card"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-
-        <RelativeLayout
-            android:id="@+id/rl_setting"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/iv_setting"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/setting" />
-
-            <TextView
-                android:id="@+id/tv_setting"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/iv_setting"
-                android:text="设置"
-                android:textColor="@color/Black"
-                android:textSize="12dp" />
-
-            <ImageView
-                android:id="@+id/iv_setting_more"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@mipmap/next" />
-        </RelativeLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>

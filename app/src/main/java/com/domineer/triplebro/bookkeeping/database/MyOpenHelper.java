@@ -21,6 +21,24 @@ public class MyOpenHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
+        //用户表
+        db.execSQL("create table userInfo(_id integer primary key autoincrement,telephone varchar(20) unique," +
+                "password varchar(20),nickname varchar(20),user_head varchar(200))");
+
+        //收藏表
+        db.execSQL("create table colloectionInfo(_id integer primary key autoincrement,account_id integer," +
+                "collection_user_id integer)");
+
+        //账单表
+        db.execSQL("create table accountInfo(_id integer primary key autoincrement,account_type_id integer," +
+                "user_id integer,account_name varchar(20),account_time varchar(10),account_content varchar(200)," +
+                "account_money varchar(30),is_collection integer)");
+
+        //账单类别表
+        db.execSQL("create table accountTypeInfo(_id integer primary key autoincrement,telephone varchar(20)" +
+                " unique,password varchar(20),nickname varchar(20),user_head varchar(200))");
+
+
     }
 
     @Override

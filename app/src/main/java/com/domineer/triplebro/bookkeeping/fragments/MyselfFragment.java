@@ -1,9 +1,11 @@
 package com.domineer.triplebro.bookkeeping.fragments;
 
 import android.app.Fragment;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -24,6 +27,14 @@ import com.domineer.triplebro.bookkeeping.activities.ContactUsActivity;
 import com.domineer.triplebro.bookkeeping.activities.LoginActivity;
 import com.domineer.triplebro.bookkeeping.activities.SettingActivity;
 import com.domineer.triplebro.bookkeeping.activities.UserInfoActivity;
+import com.domineer.triplebro.bookkeeping.database.MyOpenHelper;
+import com.domineer.triplebro.bookkeeping.properties.ProjectProperties;
+import com.domineer.triplebro.bookkeeping.utils.ChooseUserHeadDialogUtil;
+import com.domineer.triplebro.bookkeeping.utils.RealPathFromUriUtils;
+
+import java.io.File;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * @author Domineer
@@ -31,7 +42,7 @@ import com.domineer.triplebro.bookkeeping.activities.UserInfoActivity;
  * ----------为梦想启航---------
  * --Set Sell For Your Dream--
  */
-public class MyselfFragment extends Fragment implements View.OnClickListener {
+public class MyselfFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
 
     private View fragment_myself;
     private ImageView iv_user_head;
@@ -58,6 +69,10 @@ public class MyselfFragment extends Fragment implements View.OnClickListener {
     private String username;
     private String nickname;
     private String userHead;
+    private RelativeLayout rl_user_head_large;
+    private ImageView iv_user_head_large;
+    private ImageView iv_close_user_head_large;
+    private File userHeadFile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -95,6 +110,9 @@ public class MyselfFragment extends Fragment implements View.OnClickListener {
         tv_about_us = (TextView) fragment_myself.findViewById(R.id.tv_about_us);
         tv_contact_us = (TextView) fragment_myself.findViewById(R.id.tv_contact_us);
         tv_setting = (TextView) fragment_myself.findViewById(R.id.tv_setting);
+        rl_user_head_large = (RelativeLayout) fragment_myself.findViewById(R.id.rl_user_head_large);
+        iv_user_head_large = (ImageView) fragment_myself.findViewById(R.id.iv_user_head_large);
+        iv_close_user_head_large = (ImageView) fragment_myself.findViewById(R.id.iv_close_user_head_large);
     }
 
     private void initData() {
@@ -137,6 +155,10 @@ public class MyselfFragment extends Fragment implements View.OnClickListener {
         tv_contact_us.setOnClickListener(this);
         tv_setting.setOnClickListener(this);
         ll_user_info.setOnClickListener(this);
+        iv_user_head.setOnLongClickListener(this);
+        rl_user_head_large.setOnClickListener(this);
+        iv_user_head_large.setOnLongClickListener(this);
+        iv_close_user_head_large.setOnClickListener(this);
     }
 
     @Override
@@ -184,6 +206,127 @@ public class MyselfFragment extends Fragment implements View.OnClickListener {
                 Intent setting = new Intent(getActivity(), SettingActivity.class);
                 getActivity().startActivity(setting);
                 break;
+            case R.id.iv_close_user_head_large:
+                rl_user_head_large.setVisibility(View.GONE);
+                setClickableTrue();
+                break;
+            case R.id.rl_user_head_large:
+                rl_user_head_large.setVisibility(View.GONE);
+                setClickableTrue();
+                break;
         }
     }
+
+    @Override
+    public boolean onLongClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_user_head:
+                rl_user_head_large.setVisibility(View.VISIBLE);
+                if (TextUtils.isEmpty(username)) {
+                    Glide.with(getActivity()).load(R.drawable.user_head).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head);
+                } else {
+                    Glide.with(getActivity()).load(userHead).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head);
+                }
+                setClickableFalse();
+                break;
+            case R.id.iv_user_head_large:
+                long timeStamp = System.currentTimeMillis();
+                SharedPreferences.Editor edit = userInfo.edit();
+                edit.putLong("timeStamp", timeStamp);
+                edit.commit();
+                ChooseUserHeadDialogUtil.showDialog(this, username, timeStamp);
+                break;
+        }
+        return true;
+    }
+
+    private void setClickableFalse() {
+        iv_user_head.setClickable(false);
+        iv_collection.setClickable(false);
+        iv_collection_more.setClickable(false);
+        iv_about_us.setClickable(false);
+        iv_about_us_more.setClickable(false);
+        iv_contact_us.setClickable(false);
+        iv_contact_us_more.setClickable(false);
+        iv_setting.setClickable(false);
+        iv_setting_more.setClickable(false);
+        rl_collection.setClickable(false);
+        rl_about_us.setClickable(false);
+        rl_contact_us.setClickable(false);
+        rl_setting.setClickable(false);
+        tv_nickname.setClickable(false);
+        tv_username.setClickable(false);
+        tv_collection.setClickable(false);
+        tv_about_us.setClickable(false);
+        tv_contact_us.setClickable(false);
+        tv_setting.setClickable(false);
+        ll_user_info.setClickable(false);
+    }
+
+    private void setClickableTrue() {
+        iv_user_head.setClickable(true);
+        iv_collection.setClickable(true);
+        iv_collection_more.setClickable(true);
+        iv_about_us.setClickable(true);
+        iv_about_us_more.setClickable(true);
+        iv_contact_us.setClickable(true);
+        iv_contact_us_more.setClickable(true);
+        iv_setting.setClickable(true);
+        iv_setting_more.setClickable(true);
+        rl_collection.setClickable(true);
+        rl_about_us.setClickable(true);
+        rl_contact_us.setClickable(true);
+        rl_setting.setClickable(true);
+        tv_nickname.setClickable(true);
+        tv_username.setClickable(true);
+        tv_collection.setClickable(true);
+        tv_about_us.setClickable(true);
+        tv_contact_us.setClickable(true);
+        tv_setting.setClickable(true);
+        ll_user_info.setClickable(true);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        boolean isCheck = true;
+        SharedPreferences.Editor edit = userInfo.edit();
+        MyOpenHelper myOpenHelper = new MyOpenHelper(getActivity());
+        SQLiteDatabase writableDatabase = myOpenHelper.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        switch (requestCode) {
+            case ProjectProperties.FROM_GALLERY:
+                if (resultCode == RESULT_OK) {
+                    userHeadFile = new File(RealPathFromUriUtils.getRealPathFromUri(getActivity(), data.getData()));
+                    Glide.with(getActivity()).load(userHeadFile).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head_large);
+                    edit.putString("userHead", userHeadFile.getAbsolutePath());
+                    contentValues.put("user_head", userHeadFile.getAbsolutePath());
+                } else {
+                    isCheck = false;
+                }
+                break;
+            case ProjectProperties.FROM_CAMERA:
+                if (resultCode == RESULT_OK) {
+                    long timeStamp = userInfo.getLong("timeStamp", -1);
+                    userHeadFile = new File(getActivity().getFilesDir() + File.separator + "images" + File.separator + username + timeStamp + ".jpg");
+                    Glide.with(getActivity()).load(userHeadFile).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head_large);
+                    edit.putString("userHead", userHeadFile.getAbsolutePath());
+                    contentValues.put("user_head", userHeadFile.getAbsolutePath());
+                } else {
+                    isCheck = false;
+                }
+                break;
+            default:
+                break;
+        }
+        if (isCheck) {
+            edit.commit();
+            writableDatabase.update("userInfo", contentValues, "telephone = ?", new String[]{username});
+            writableDatabase.close();
+        } else {
+            Toast.makeText(getActivity(), "取消修改", Toast.LENGTH_SHORT).show();
+        }
+        initData();
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }

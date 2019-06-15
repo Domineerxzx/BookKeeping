@@ -17,11 +17,12 @@ public class AccountInfo implements Serializable {
     private String accountContent;
     private String accountMoney;
     private int isCollection;
+    private int userId;
 
     public AccountInfo() {
     }
 
-    public AccountInfo(int _id, int accountTypeId, String accountName, String accountTime, String accountContent, String accountMoney, int isCollection) {
+    public AccountInfo(int _id, int accountTypeId, String accountName, String accountTime, String accountContent, String accountMoney, int isCollection, int userId) {
         this._id = _id;
         this.accountTypeId = accountTypeId;
         this.accountName = accountName;
@@ -29,6 +30,7 @@ public class AccountInfo implements Serializable {
         this.accountContent = accountContent;
         this.accountMoney = accountMoney;
         this.isCollection = isCollection;
+        this.userId = userId;
     }
 
     public int get_id() {
@@ -87,6 +89,14 @@ public class AccountInfo implements Serializable {
         this.isCollection = isCollection;
     }
 
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
     @Override
     public String toString() {
         return "AccountInfo{" +
@@ -97,6 +107,7 @@ public class AccountInfo implements Serializable {
                 ", accountContent='" + accountContent + '\'' +
                 ", accountMoney='" + accountMoney + '\'' +
                 ", isCollection=" + isCollection +
+                ", userId=" + userId +
                 '}';
     }
 }
