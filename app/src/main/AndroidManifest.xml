@@ -29,7 +29,6 @@
         <activity android:name=".activities.AboutUsActivity" />
         <activity android:name=".activities.ContactUsActivity" />
         <activity android:name=".activities.CollectionActivity" />
-        <activity android:name=".activities.UserInfoActivity"/>
 
         <service
             android:name=".services.MyService"

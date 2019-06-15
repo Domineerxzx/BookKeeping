@@ -26,7 +26,6 @@ import com.domineer.triplebro.bookkeeping.activities.CollectionActivity;
 import com.domineer.triplebro.bookkeeping.activities.ContactUsActivity;
 import com.domineer.triplebro.bookkeeping.activities.LoginActivity;
 import com.domineer.triplebro.bookkeeping.activities.SettingActivity;
-import com.domineer.triplebro.bookkeeping.activities.UserInfoActivity;
 import com.domineer.triplebro.bookkeeping.database.MyOpenHelper;
 import com.domineer.triplebro.bookkeeping.properties.ProjectProperties;
 import com.domineer.triplebro.bookkeeping.utils.ChooseUserHeadDialogUtil;
@@ -166,16 +165,15 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
         switch (v.getId()) {
             case R.id.iv_user_head:
             case R.id.ll_user_info:
-            case R.id.tv_nickname:
             case R.id.tv_username:
+            case R.id.tv_nickname:
                 String username = tv_username.getText().toString().trim();
                 String nickname = tv_nickname.getText().toString().trim();
-                if (username.equals(R.string.usernameDefault) && nickname.equals(R.string.nicknameDefault)) {
+                if (username.equals("暂无登录信息") || nickname.equals("点击  登录/注册")) {
                     Intent login = new Intent(getActivity(), LoginActivity.class);
                     getActivity().startActivity(login);
                 } else {
-                    Intent userInfo = new Intent(getActivity(), UserInfoActivity.class);
-                    getActivity().startActivity(userInfo);
+                    Toast.makeText(getActivity(), "长按头像可查看大头像", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.rl_collection:
@@ -223,9 +221,9 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
             case R.id.iv_user_head:
                 rl_user_head_large.setVisibility(View.VISIBLE);
                 if (TextUtils.isEmpty(username)) {
-                    Glide.with(getActivity()).load(R.drawable.user_head).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head);
+                    Glide.with(getActivity()).load(R.drawable.user_head).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head_large);
                 } else {
-                    Glide.with(getActivity()).load(userHead).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head);
+                    Glide.with(getActivity()).load(userHead).apply(RequestOptions.bitmapTransform(new CircleCrop())).into(iv_user_head_large);
                 }
                 setClickableFalse();
                 break;

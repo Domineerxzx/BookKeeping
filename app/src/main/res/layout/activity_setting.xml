@@ -1,9 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SettingActivity">
+    android:background="@color/AppBackground">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/White">
+
+        <ImageView
+            android:id="@+id/iv_close_setting"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="设置"
+            android:textSize="16dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#9dbebebe" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_clean_cache"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/rl_title"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/shape_alpha_card"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="清理缓存"
+        android:textColor="@color/White"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/tv_cancellation"
+        android:text="注销"
+        android:gravity="center"
+        android:layout_below="@id/tv_clean_cache"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="10dp"
+        android:background="@drawable/shape_pay"
+        android:textColor="@color/White"
+        android:textStyle="bold"/>
+
+</RelativeLayout>
