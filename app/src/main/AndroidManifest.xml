@@ -26,7 +26,7 @@
         <activity android:name=".activities.LoginActivity" />
         <activity android:name=".activities.RegisterActivity" />
         <activity android:name=".activities.SettingActivity" />
-        <activity android:name=".activities.AboutUsActivity" />
+        <activity android:name=".activities.PushOrPullActivity" />
         <activity android:name=".activities.ContactUsActivity" />
         <activity android:name=".activities.CollectionActivity" />
 

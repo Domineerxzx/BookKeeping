@@ -21,7 +21,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
 import com.domineer.triplebro.bookkeeping.R;
-import com.domineer.triplebro.bookkeeping.activities.AboutUsActivity;
+import com.domineer.triplebro.bookkeeping.activities.PushOrPullActivity;
 import com.domineer.triplebro.bookkeeping.activities.CollectionActivity;
 import com.domineer.triplebro.bookkeeping.activities.ContactUsActivity;
 import com.domineer.triplebro.bookkeeping.activities.LoginActivity;
@@ -47,21 +47,21 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
     private ImageView iv_user_head;
     private ImageView iv_collection;
     private ImageView iv_collection_more;
-    private ImageView iv_about_us;
-    private ImageView iv_about_us_more;
+    private ImageView iv_push_or_pull;
+    private ImageView iv_push_or_pull_more;
     private ImageView iv_contact_us;
     private ImageView iv_contact_us_more;
     private ImageView iv_setting;
     private ImageView iv_setting_more;
     private RelativeLayout rl_collection;
-    private RelativeLayout rl_about_us;
+    private RelativeLayout rl_push_or_pull;
     private RelativeLayout rl_contact_us;
     private RelativeLayout rl_setting;
     private LinearLayout ll_user_info;
     private TextView tv_nickname;
     private TextView tv_username;
     private TextView tv_collection;
-    private TextView tv_about_us;
+    private TextView tv_push_or_pull;
     private TextView tv_contact_us;
     private TextView tv_setting;
     private SharedPreferences userInfo;
@@ -92,21 +92,21 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
         iv_user_head = (ImageView) fragment_myself.findViewById(R.id.iv_user_head);
         iv_collection = (ImageView) fragment_myself.findViewById(R.id.iv_collection);
         iv_collection_more = (ImageView) fragment_myself.findViewById(R.id.iv_collection_more);
-        iv_about_us = (ImageView) fragment_myself.findViewById(R.id.iv_about_us);
-        iv_about_us_more = (ImageView) fragment_myself.findViewById(R.id.iv_about_us_more);
+        iv_push_or_pull = (ImageView) fragment_myself.findViewById(R.id.iv_push_or_pull);
+        iv_push_or_pull_more = (ImageView) fragment_myself.findViewById(R.id.iv_push_or_pull_more);
         iv_contact_us = (ImageView) fragment_myself.findViewById(R.id.iv_contact_us);
         iv_contact_us_more = (ImageView) fragment_myself.findViewById(R.id.iv_contact_us_more);
         iv_setting = (ImageView) fragment_myself.findViewById(R.id.iv_setting);
         iv_setting_more = (ImageView) fragment_myself.findViewById(R.id.iv_setting_more);
         rl_collection = (RelativeLayout) fragment_myself.findViewById(R.id.rl_collection);
-        rl_about_us = (RelativeLayout) fragment_myself.findViewById(R.id.rl_about_us);
+        rl_push_or_pull = (RelativeLayout) fragment_myself.findViewById(R.id.rl_push_or_pull);
         rl_contact_us = (RelativeLayout) fragment_myself.findViewById(R.id.rl_contact_us);
         rl_setting = (RelativeLayout) fragment_myself.findViewById(R.id.rl_setting);
         ll_user_info = (LinearLayout) fragment_myself.findViewById(R.id.ll_user_info);
         tv_nickname = (TextView) fragment_myself.findViewById(R.id.tv_nickname);
         tv_username = (TextView) fragment_myself.findViewById(R.id.tv_username);
         tv_collection = (TextView) fragment_myself.findViewById(R.id.tv_collection);
-        tv_about_us = (TextView) fragment_myself.findViewById(R.id.tv_about_us);
+        tv_push_or_pull = (TextView) fragment_myself.findViewById(R.id.tv_push_or_pull);
         tv_contact_us = (TextView) fragment_myself.findViewById(R.id.tv_contact_us);
         tv_setting = (TextView) fragment_myself.findViewById(R.id.tv_setting);
         rl_user_head_large = (RelativeLayout) fragment_myself.findViewById(R.id.rl_user_head_large);
@@ -137,20 +137,20 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
         iv_user_head.setOnClickListener(this);
         iv_collection.setOnClickListener(this);
         iv_collection_more.setOnClickListener(this);
-        iv_about_us.setOnClickListener(this);
-        iv_about_us_more.setOnClickListener(this);
+        iv_push_or_pull.setOnClickListener(this);
+        iv_push_or_pull_more.setOnClickListener(this);
         iv_contact_us.setOnClickListener(this);
         iv_contact_us_more.setOnClickListener(this);
         iv_setting.setOnClickListener(this);
         iv_setting_more.setOnClickListener(this);
         rl_collection.setOnClickListener(this);
-        rl_about_us.setOnClickListener(this);
+        rl_push_or_pull.setOnClickListener(this);
         rl_contact_us.setOnClickListener(this);
         rl_setting.setOnClickListener(this);
         tv_nickname.setOnClickListener(this);
         tv_username.setOnClickListener(this);
         tv_collection.setOnClickListener(this);
-        tv_about_us.setOnClickListener(this);
+        tv_push_or_pull.setOnClickListener(this);
         tv_contact_us.setOnClickListener(this);
         tv_setting.setOnClickListener(this);
         ll_user_info.setOnClickListener(this);
@@ -183,11 +183,11 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
                 Intent collection = new Intent(getActivity(), CollectionActivity.class);
                 getActivity().startActivity(collection);
                 break;
-            case R.id.rl_about_us:
-            case R.id.iv_about_us:
-            case R.id.tv_about_us:
-            case R.id.iv_about_us_more:
-                Intent about_us = new Intent(getActivity(), AboutUsActivity.class);
+            case R.id.rl_push_or_pull:
+            case R.id.iv_push_or_pull:
+            case R.id.tv_push_or_pull:
+            case R.id.iv_push_or_pull_more:
+                Intent about_us = new Intent(getActivity(), PushOrPullActivity.class);
                 getActivity().startActivity(about_us);
                 break;
             case R.id.rl_contact_us:
@@ -242,20 +242,20 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
         iv_user_head.setClickable(false);
         iv_collection.setClickable(false);
         iv_collection_more.setClickable(false);
-        iv_about_us.setClickable(false);
-        iv_about_us_more.setClickable(false);
+        iv_push_or_pull.setClickable(false);
+        iv_push_or_pull_more.setClickable(false);
         iv_contact_us.setClickable(false);
         iv_contact_us_more.setClickable(false);
         iv_setting.setClickable(false);
         iv_setting_more.setClickable(false);
         rl_collection.setClickable(false);
-        rl_about_us.setClickable(false);
+        rl_push_or_pull.setClickable(false);
         rl_contact_us.setClickable(false);
         rl_setting.setClickable(false);
         tv_nickname.setClickable(false);
         tv_username.setClickable(false);
         tv_collection.setClickable(false);
-        tv_about_us.setClickable(false);
+        tv_push_or_pull.setClickable(false);
         tv_contact_us.setClickable(false);
         tv_setting.setClickable(false);
         ll_user_info.setClickable(false);
@@ -265,20 +265,20 @@ public class MyselfFragment extends Fragment implements View.OnClickListener, Vi
         iv_user_head.setClickable(true);
         iv_collection.setClickable(true);
         iv_collection_more.setClickable(true);
-        iv_about_us.setClickable(true);
-        iv_about_us_more.setClickable(true);
+        iv_push_or_pull.setClickable(true);
+        iv_push_or_pull_more.setClickable(true);
         iv_contact_us.setClickable(true);
         iv_contact_us_more.setClickable(true);
         iv_setting.setClickable(true);
         iv_setting_more.setClickable(true);
         rl_collection.setClickable(true);
-        rl_about_us.setClickable(true);
+        rl_push_or_pull.setClickable(true);
         rl_contact_us.setClickable(true);
         rl_setting.setClickable(true);
         tv_nickname.setClickable(true);
         tv_username.setClickable(true);
         tv_collection.setClickable(true);
-        tv_about_us.setClickable(true);
+        tv_push_or_pull.setClickable(true);
         tv_contact_us.setClickable(true);
         tv_setting.setClickable(true);
         ll_user_info.setClickable(true);
