@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="#bebebe">
+
+    <LinearLayout
+        android:id="@+id/ll_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#fff">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:id="@+id/ll_add_account">
+
+            <Button
+                android:id="@+id/bt_add_account"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/add_account"/>
+
+            <TextView
+                android:id="@+id/tv_add_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="记账"
+                android:textColor="#000"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_account"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_account"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/account_unclick"/>
+
+            <TextView
+                android:id="@+id/tv_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="账本"
+                android:textColor="#888"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_statistics"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_statistics"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/statistics_unclick"/>
+
+            <TextView
+                android:id="@+id/tv_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="统计"
+                android:textColor="#888"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_myself"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_myself"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@mipmap/myself_unclick"/>
+
+            <TextView
+                android:id="@+id/tv_myself"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我的"
+                android:textColor="#888"
+                android:textSize="10dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

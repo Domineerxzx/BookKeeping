@@ -16,17 +16,19 @@ public class AccountInfo implements Serializable {
     private String accountTime;
     private String accountContent;
     private String accountMoney;
+    private int isCollection;
 
     public AccountInfo() {
     }
 
-    public AccountInfo(int _id, int accountTypeId, String accountName, String accountTime, String accountContent, String accountMoney) {
+    public AccountInfo(int _id, int accountTypeId, String accountName, String accountTime, String accountContent, String accountMoney, int isCollection) {
         this._id = _id;
         this.accountTypeId = accountTypeId;
         this.accountName = accountName;
         this.accountTime = accountTime;
         this.accountContent = accountContent;
         this.accountMoney = accountMoney;
+        this.isCollection = isCollection;
     }
 
     public int get_id() {
@@ -77,15 +79,24 @@ public class AccountInfo implements Serializable {
         this.accountMoney = accountMoney;
     }
 
+    public int getIsCollection() {
+        return isCollection;
+    }
+
+    public void setIsCollection(int isCollection) {
+        this.isCollection = isCollection;
+    }
+
     @Override
     public String toString() {
         return "AccountInfo{" +
                 "_id=" + _id +
-                ", accountTypeId='" + accountTypeId + '\'' +
+                ", accountTypeId=" + accountTypeId +
                 ", accountName='" + accountName + '\'' +
                 ", accountTime='" + accountTime + '\'' +
                 ", accountContent='" + accountContent + '\'' +
                 ", accountMoney='" + accountMoney + '\'' +
+                ", isCollection=" + isCollection +
                 '}';
     }
 }

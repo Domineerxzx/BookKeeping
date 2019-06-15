@@ -14,15 +14,17 @@ public class UserInfo implements Serializable {
     private String telephone;
     private String password;
     private String userHead;
+    private String nickname;
 
     public UserInfo() {
     }
 
-    public UserInfo(int _id, String telephone, String password, String userHead) {
+    public UserInfo(int _id, String telephone, String password, String userHead, String nickname) {
         this._id = _id;
         this.telephone = telephone;
         this.password = password;
         this.userHead = userHead;
+        this.nickname = nickname;
     }
 
     public int get_id() {
@@ -55,6 +57,14 @@ public class UserInfo implements Serializable {
 
     public void setUserHead(String userHead) {
         this.userHead = userHead;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 
     @Override
