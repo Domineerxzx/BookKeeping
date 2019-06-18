@@ -1,9 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.PushOrPullActivity">
+    android:background="@color/AppBackground">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/White">
+
+        <ImageView
+            android:id="@+id/iv_close_push_or_pull"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="备份与同步"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#9dbebebe" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_yun_version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_title"
+        android:layout_marginTop="20dp"
+        android:text="云端数据库版本："
+        android:layout_centerHorizontal="true"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/App_Color"/>
+
+    <TextView
+        android:id="@+id/tv_yun_version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_yun_version_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="1.0.1"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/App_Color" />
+
+    <TextView
+        android:id="@+id/tv_local_version_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_yun_version_number"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="本地数据库版本："
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/tv_local_version_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_local_version_name"
+        android:layout_marginTop="20dp"
+        android:text="1.0.0"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_below="@id/tv_local_version_number"
+        android:layout_marginTop="20dp"
+        android:id="@+id/tv_push"
+        android:text="备份"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/White"
+        android:background="@drawable/shape_push"/>
+
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_toRightOf="@id/tv_push"
+        android:layout_alignBottom="@id/tv_push"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/tv_pull"
+        android:text="同步"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:textColor="@color/White"
+        android:background="@drawable/shape_pull"/>
+
+
+</RelativeLayout>

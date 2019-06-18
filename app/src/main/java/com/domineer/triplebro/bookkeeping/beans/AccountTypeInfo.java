@@ -11,12 +11,12 @@ import java.io.Serializable;
 public class AccountTypeInfo implements Serializable {
 
     private int _id;
-    private int AccountTypeName;
+    private String AccountTypeName;
 
     public AccountTypeInfo() {
     }
 
-    public AccountTypeInfo(int _id, int accountTypeName) {
+    public AccountTypeInfo(int _id, String accountTypeName) {
         this._id = _id;
         AccountTypeName = accountTypeName;
     }
@@ -29,11 +29,11 @@ public class AccountTypeInfo implements Serializable {
         this._id = _id;
     }
 
-    public int getAccountTypeName() {
+    public String getAccountTypeName() {
         return AccountTypeName;
     }
 
-    public void setAccountTypeName(int accountTypeName) {
+    public void setAccountTypeName(String accountTypeName) {
         AccountTypeName = accountTypeName;
     }
 

@@ -6,12 +6,15 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.widget.Toast;
 
+import com.domineer.triplebro.bookkeeping.beans.AccountTypeInfo;
 import com.domineer.triplebro.bookkeeping.beans.UserInfo;
 import com.domineer.triplebro.bookkeeping.database.MyOpenHelper;
 import com.domineer.triplebro.bookkeeping.exception.LoginOrRegisterException;
 import com.domineer.triplebro.bookkeeping.properties.ProjectProperties;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Domineer
@@ -64,5 +67,25 @@ public class DataBaseOP {
         }else{
             return (int) userInfoInsert;
         }
+    }
+
+    public List<AccountTypeInfo> getAccountTypeInfoList() {
+        List<AccountTypeInfo> accountTypeInfoList = new ArrayList<>();
+        Cursor accountTypeInfoCursor = db.query("accountTypeInfo", null, null, null, null, null, null);
+        if (accountTypeInfoCursor != null && accountTypeInfoCursor.getCount() > 0) {
+            while (accountTypeInfoCursor.moveToNext()){
+                AccountTypeInfo accountTypeInfo = new AccountTypeInfo();
+                accountTypeInfo.set_id(accountTypeInfoCursor.getInt(0));
+                accountTypeInfo.setAccountTypeName(accountTypeInfoCursor.getString(1));
+                accountTypeInfoList.add(accountTypeInfo);
+            }
+        }else{
+            Toast.makeText(context, "暂无账单类别信息！！！", Toast.LENGTH_SHORT).show();
+        }
+        return accountTypeInfoList;
+    }
+
+    public void insertAccountInfo(ContentValues contentValues) {
+        db.insert("accountInfo",null,contentValues);
     }
 }

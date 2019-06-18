@@ -50,7 +50,7 @@
         android:id="@+id/tv_people_name"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:text="开发人员：Domineer" />
+        android:text="开发人员：XXX 、XXX" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -61,20 +61,11 @@
         android:layout_marginTop="30dp"
         android:text="电话号码：18840919546" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tv_people_telephone"
-        android:id="@+id/tv_people_email"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="电子邮件：374448535@qq.com" />
-
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@id/tv_people_email"
         android:layout_centerHorizontal="true"
+        android:layout_below="@id/tv_people_telephone"
         android:layout_marginTop="50dp"
         android:background="@mipmap/about_us_dream"/>
 
