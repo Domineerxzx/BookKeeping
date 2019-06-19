@@ -16,9 +16,6 @@ import com.domineer.triplebro.bookkeeping.utils.HttpUtils;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.List;
 
 import okhttp3.Call;
@@ -50,8 +47,9 @@ public class HttpOP implements ISource {
     }
 
     @Override
-    public void updateAccountInfo(ContentValues contentValues, int id) {
+    public int updateAccountInfo(ContentValues contentValues, int id) {
 
+        return id;
     }
 
     @Override
@@ -101,5 +99,10 @@ public class HttpOP implements ISource {
     @Override
     public void insertAccountTypeInfo() {
 
+    }
+
+    @Override
+    public int deleteAccountInfo(int id) {
+        return 0;
     }
 }

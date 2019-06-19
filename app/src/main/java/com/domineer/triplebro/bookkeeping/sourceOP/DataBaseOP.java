@@ -92,6 +92,12 @@ public class DataBaseOP implements ISource {
         db.insert("accountTypeInfo", null, contentValues);
     }
 
+    @Override
+    public int deleteAccountInfo(int id) {
+        int accountInfo = db.delete("accountInfo", "_id = ?", new String[]{String.valueOf(id)});
+        return accountInfo;
+    }
+
     public List<AccountTypeInfo> getAccountTypeInfoList() {
         List<AccountTypeInfo> accountTypeInfoList = new ArrayList<>();
         Cursor accountTypeInfoCursor = db.query("accountTypeInfo", null, null, null, null, null, null);
@@ -115,8 +121,9 @@ public class DataBaseOP implements ISource {
         db.insert("accountInfo",null,contentValues);
     }
 
-    public void updateAccountInfo(ContentValues contentValues, int id) {
-        db.update("accountInfo",contentValues,"_id = ?",new String[]{String.valueOf(id)});
+    public int updateAccountInfo(ContentValues contentValues, int id) {
+        int accountInfo = db.update("accountInfo", contentValues, "_id = ?", new String[]{String.valueOf(id)});
+        return accountInfo;
     }
 
     public List<AccountInfo> getAllAccountInfoList(int user_id) {

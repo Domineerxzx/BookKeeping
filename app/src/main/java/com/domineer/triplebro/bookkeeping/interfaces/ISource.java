@@ -18,7 +18,7 @@ public interface ISource {
 
     List<AccountInfo> getAllAccountInfoList(int user_id);
 
-    void updateAccountInfo(ContentValues contentValues, int id);
+    int updateAccountInfo(ContentValues contentValues, int id);
 
     List<AccountInfo> getCollectionAccountList(int user_id);
 
@@ -31,4 +31,6 @@ public interface ISource {
     void getAdPicture(String adPicturePath, AdPictureHandler adPictureHandler);
 
     void insertAccountTypeInfo();
+
+    int deleteAccountInfo(int id);
 }

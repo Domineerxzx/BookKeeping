@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/AppBackground">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/White">
+
+        <ImageView
+            android:id="@+id/iv_close_account"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="账单详情"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#9dbebebe" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:padding="20dp"
+        android:layout_below="@id/rl_title">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <RelativeLayout
+                android:id="@+id/rl_add_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_unit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¥"
+                    android:textColor="@color/App_Color"
+                    android:textSize="85dp" />
+
+                <EditText
+                    android:id="@+id/et_account_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/tv_unit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/tv_unit"
+                    android:hint="请输入消费的金额"
+                    android:inputType="numberDecimal"
+                    android:textSize="35dp" />
+
+                <TextView
+                    android:id="@+id/tv_ps"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="备注："
+                    android:textColor="@color/App_Color"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_below="@id/et_account_number"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:id="@+id/et_ps"
+                    android:layout_below="@id/tv_ps"
+                    android:background="@drawable/shape_account_ps"
+                    android:layout_margin="10dp"
+                    android:hint="请输入账单备注信息"
+                    android:textSize="15dp"
+                    android:gravity="left"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/Black"/>
+
+                <TextView
+                    android:id="@+id/tv_choose_type_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/et_ps"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="请选择消费的类别："
+                    android:textColor="@color/App_Color" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_account_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_choose_type_title"
+                    android:layout_margin="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_choose_type_title"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:text="暂无账单类别信息！！！"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@color/App_Color" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_change"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/rl_add_account"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_button"
+                android:gravity="center"
+                android:text="修   改"
+                android:textColor="@color/White"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/tv_change"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_alpha_card"
+                android:gravity="center"
+                android:text="删  除"
+                android:textColor="@color/White"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

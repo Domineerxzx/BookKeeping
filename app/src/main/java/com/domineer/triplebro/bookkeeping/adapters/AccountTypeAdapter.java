@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.domineer.triplebro.bookkeeping.R;
+import com.domineer.triplebro.bookkeeping.activities.AccountActivity;
 import com.domineer.triplebro.bookkeeping.beans.AccountTypeInfo;
 import com.domineer.triplebro.bookkeeping.interfaces.OnItemClickListener;
 
@@ -20,10 +21,18 @@ public class AccountTypeAdapter extends RecyclerView.Adapter<AccountTypeAdapter.
     private Context context;
     private List<AccountTypeInfo> data;
     private OnItemClickListener onItemClickListener;
+    private int accountTypeId;
+    private TextView lastTextView;
 
     public AccountTypeAdapter(Context context, List<AccountTypeInfo> data) {
         this.context = context;
         this.data = data;
+    }
+
+    public AccountTypeAdapter(Context context, List<AccountTypeInfo> data, int accountTypeId) {
+        this.context = context;
+        this.data = data;
+        this.accountTypeId = accountTypeId;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -51,6 +60,11 @@ public class AccountTypeAdapter extends RecyclerView.Adapter<AccountTypeAdapter.
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
         final ViewHolder holder = viewHolder;
         holder.tv_account_type.setText(data.get(i).getAccountTypeName());
+        if (i == (accountTypeId - 1)) {
+            holder.tv_account_type.setBackgroundResource(R.drawable.shape_button);
+            holder.tv_account_type.setTextColor(Color.WHITE);
+            lastTextView = holder.tv_account_type;
+        }
     }
 
 
@@ -63,7 +77,7 @@ public class AccountTypeAdapter extends RecyclerView.Adapter<AccountTypeAdapter.
 
         private OnItemClickListener onItemClickListener;
         private TextView tv_account_type;
-        private TextView lastTextView;
+
 
         public ViewHolder(@NonNull View itemView, OnItemClickListener onItemClickListener) {
             super(itemView);
@@ -78,16 +92,16 @@ public class AccountTypeAdapter extends RecyclerView.Adapter<AccountTypeAdapter.
 
         @Override
         public void onClick(View v) {
-            if(lastTextView != null){
+            if (lastTextView != null) {
                 lastTextView.setBackgroundResource(R.drawable.shape_account_type);
                 lastTextView.setTextColor(0xFFFFBB00);
             }
-            if(lastTextView == tv_account_type){
+            if (lastTextView == tv_account_type) {
                 lastTextView.setBackgroundResource(R.drawable.shape_account_type);
                 lastTextView.setTextColor(0xFFFFBB00);
                 lastTextView = null;
                 onItemClickListener.onItemClick(v, -1);
-            }else{
+            } else {
                 lastTextView = tv_account_type;
                 tv_account_type.setBackgroundResource(R.drawable.shape_button);
                 tv_account_type.setTextColor(Color.WHITE);

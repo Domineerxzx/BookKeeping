@@ -2,6 +2,7 @@ package com.domineer.triplebro.bookkeeping.fragments;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.domineer.triplebro.bookkeeping.R;
+import com.domineer.triplebro.bookkeeping.activities.AccountActivity;
 import com.domineer.triplebro.bookkeeping.adapters.AccountAdapter;
 import com.domineer.triplebro.bookkeeping.beans.AccountInfo;
 import com.domineer.triplebro.bookkeeping.managers.AccountManager;
@@ -37,6 +39,12 @@ public class AllAccountFragment extends Fragment implements AdapterView.OnItemCl
         return fragment_account;
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        initData();
+    }
+
     private void initView() {
         lv_all_account = (ListView) fragment_account.findViewById(R.id.lv_all_account);
     }
@@ -60,6 +68,8 @@ public class AllAccountFragment extends Fragment implements AdapterView.OnItemCl
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+        Intent account = new Intent(getActivity(), AccountActivity.class);
+        account.putExtra("accountInfo",accountInfoList.get(position));
+        startActivity(account);
     }
 }
