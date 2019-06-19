@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/AppBackground">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@id/tv_unit"
                     android:hint="请输入消费的金额"
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textSize="35dp" />
 
                 <TextView

@@ -14,12 +14,6 @@ import android.widget.TextView;
 
 import com.domineer.triplebro.bookkeeping.R;
 
-/**
- * @author Domineer
- * @data 2019/6/15,13:02
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class BottomFragment extends Fragment implements View.OnClickListener {
 
     private View fragment_bottom;

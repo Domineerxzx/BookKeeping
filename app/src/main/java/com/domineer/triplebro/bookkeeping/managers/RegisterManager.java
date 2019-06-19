@@ -5,21 +5,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.domineer.triplebro.bookkeeping.activities.RegisterActivity;
+import com.domineer.triplebro.bookkeeping.enmuration.SourceType;
 import com.domineer.triplebro.bookkeeping.exception.LoginOrRegisterException;
+import com.domineer.triplebro.bookkeeping.interfaces.ISource;
 import com.domineer.triplebro.bookkeeping.sourceOP.DataBaseOP;
+import com.domineer.triplebro.bookkeeping.sourceprovider.SourceFactory;
 
 import java.io.File;
 
-/**
- * @author Domineer
- * @data 2019/6/16,5:16
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class RegisterManager {
 
     private Context context;
-    private DataBaseOP dataBaseOP;
+    private ISource dataBaseOP;
     private int userId;
     private SharedPreferences userInfoSharedPreferences;
     private SharedPreferences.Editor edit;
@@ -30,7 +27,7 @@ public class RegisterManager {
 
 
     public void register(String username, String password, String nickname, File userHeadFile) throws LoginOrRegisterException {
-        dataBaseOP = new DataBaseOP(context);
+        dataBaseOP = (DataBaseOP)SourceFactory.sourceCreate(context,SourceType.SOURCE_FROM_DB);
         userId = dataBaseOP.registerUser(username, nickname, password, userHeadFile);
         userInfoSharedPreferences = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         edit = userInfoSharedPreferences.edit();

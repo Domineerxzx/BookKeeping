@@ -2,12 +2,6 @@ package com.domineer.triplebro.bookkeeping.beans;
 
 import java.io.Serializable;
 
-/**
- * @author Domineer
- * @data 2019/6/15,12:47
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class UserInfo implements Serializable {
 
     private int _id;

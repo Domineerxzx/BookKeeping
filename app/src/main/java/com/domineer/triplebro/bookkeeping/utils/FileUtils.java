@@ -2,12 +2,6 @@ package com.domineer.triplebro.bookkeeping.utils;
 
 import java.io.File;
 
-/**
- * @author Domineer
- * @data 2019/6/16,5:58
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class FileUtils {
 
     public static void deleteFile(File file) {

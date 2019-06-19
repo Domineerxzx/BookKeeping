@@ -6,19 +6,16 @@ import android.content.SharedPreferences;
 import com.domineer.triplebro.bookkeeping.activities.LoginActivity;
 import com.domineer.triplebro.bookkeeping.beans.UserInfo;
 import com.domineer.triplebro.bookkeeping.database.MyOpenHelper;
+import com.domineer.triplebro.bookkeeping.enmuration.SourceType;
 import com.domineer.triplebro.bookkeeping.exception.LoginOrRegisterException;
+import com.domineer.triplebro.bookkeeping.interfaces.ISource;
 import com.domineer.triplebro.bookkeeping.sourceOP.DataBaseOP;
+import com.domineer.triplebro.bookkeeping.sourceprovider.SourceFactory;
 
-/**
- * @author Domineer
- * @data 2019/6/16,3:51
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class LoginManager {
 
     private Context context;
-    private DataBaseOP dataBaseOP;
+    private ISource dataBaseOP;
     private SharedPreferences userInfoSharedPreferences;
     private SharedPreferences.Editor edit;
 
@@ -28,7 +25,7 @@ public class LoginManager {
 
     public void login(String username, String password) throws LoginOrRegisterException {
 
-        dataBaseOP = new DataBaseOP(context);
+        dataBaseOP = (DataBaseOP)SourceFactory.sourceCreate(context,SourceType.SOURCE_FROM_DB);
         UserInfo userInfo = dataBaseOP.checkUser(username,password);
         userInfoSharedPreferences = context.getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         edit = userInfoSharedPreferences.edit();

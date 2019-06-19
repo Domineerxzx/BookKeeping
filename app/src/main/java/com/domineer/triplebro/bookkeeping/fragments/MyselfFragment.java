@@ -35,12 +35,6 @@ import java.io.File;
 
 import static android.app.Activity.RESULT_OK;
 
-/**
- * @author Domineer
- * @data 2019/6/15,13:02
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class MyselfFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener {
 
     private View fragment_myself;

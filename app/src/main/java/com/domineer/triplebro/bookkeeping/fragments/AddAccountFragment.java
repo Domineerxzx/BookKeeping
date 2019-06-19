@@ -24,12 +24,6 @@ import com.domineer.triplebro.bookkeeping.managers.AddAccountManager;
 
 import java.util.List;
 
-/**
- * @author Domineer
- * @data 2019/6/15,13:00
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class AddAccountFragment extends Fragment implements View.OnClickListener, OnItemClickListener {
 
     private View fragment_add_account;

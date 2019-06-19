@@ -32,9 +32,7 @@
         <activity android:name=".activities.CollectionActivity" />
 
         <service
-            android:name=".services.MyService"
-            android:enabled="false"
-            android:exported="false" />
+            android:name=".services.MyService" />
 
         <provider
             android:name="android.support.v4.content.FileProvider"

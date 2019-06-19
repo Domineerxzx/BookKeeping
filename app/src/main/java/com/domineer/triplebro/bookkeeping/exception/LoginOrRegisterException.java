@@ -1,11 +1,5 @@
 package com.domineer.triplebro.bookkeeping.exception;
 
-/**
- * @author Domineer
- * @data 2019/6/16,3:55
- * ----------为梦想启航---------
- * --Set Sell For Your Dream--
- */
 public class LoginOrRegisterException extends Exception {
 
     public int errorCode;
