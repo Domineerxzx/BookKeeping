@@ -43,6 +43,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     private String password;
     private SharedPreferences userInfo;
     private File userHeadFile;
+    private ImageView iv_close_create;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
+        iv_close_create = (ImageView) findViewById(R.id.iv_close_create);
         iv_user_head = (ImageView) findViewById(R.id.iv_user_head);
         et_nickname = (EditText) findViewById(R.id.et_nickname);
         et_username = (EditText) findViewById(R.id.et_username);
@@ -72,6 +74,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         iv_user_head.setOnClickListener(this);
         bt_login.setOnClickListener(this);
         bt_create.setOnClickListener(this);
+        iv_close_create.setOnClickListener(this);
     }
 
     @Override
@@ -123,6 +126,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             case R.id.bt_login:
                 Intent login = new Intent(this, LoginActivity.class);
                 startActivity(login);
+                finish();
+                break;
+            case R.id.iv_close_create:
                 finish();
                 break;
         }

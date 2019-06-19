@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.domineer.triplebro.bookkeeping.R;
 
@@ -47,8 +48,10 @@ public class PushOrPullActivity extends Activity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.tv_push:
+                Toast.makeText(this, "尚未开发完成", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.tv_pull:
+                Toast.makeText(this, "尚未开发完成", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.iv_close_push_or_pull:
                 finish();

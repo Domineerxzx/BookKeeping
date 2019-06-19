@@ -106,6 +106,10 @@ public class AddAccountFragment extends Fragment implements View.OnClickListener
                     return;
                 }
                 addAccountManager.addAccount(user_id,ps,account_number,accountTypeInfo);
+                et_account_number.setText("");
+                et_ps.setText("");
+                accountTypeInfo = null;
+                initData();
                 break;
         }
     }
